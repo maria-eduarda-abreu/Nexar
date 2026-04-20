@@ -1,0 +1,58 @@
+/* src/components/Button.module.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 1.5px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Variants */
+.primary {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+.primary:hover {
+  background: #333;
+}
+
+.secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-gray-400);
+}
+.secondary:hover {
+  border-color: var(--color-black);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-gray-600);
+  border-color: transparent;
+}
+.ghost:hover {
+  color: var(--color-black);
+}
+
+/* Modifiers */
+.fullWidth {
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}

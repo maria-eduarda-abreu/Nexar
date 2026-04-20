@@ -1,0 +1,183 @@
+/* src/pages/ConnectionsPage.module.css */
+.page {
+  min-height: 100vh;
+}
+
+.pageTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.pageSubtitle {
+  font-size: 13px;
+  color: var(--color-gray-600);
+  margin-bottom: 14px;
+}
+
+/* Search */
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--color-gray-400);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  transition: border-color var(--transition-fast);
+}
+
+.searchBox:focus-within {
+  border-color: var(--color-black);
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 13px;
+  color: var(--color-black);
+  background: transparent;
+}
+
+.searchInput::placeholder {
+  color: var(--color-gray-500);
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--color-gray-500);
+  font-size: 12px;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+/* Filters */
+.filterLabel {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.filterRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 6px 14px;
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filterBtnActive {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.filterBtn:hover:not(.filterBtnActive) {
+  background: var(--color-gray-100);
+}
+
+/* Mentor list */
+.mentorList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Mentor card */
+.mentorCard {
+  border: 1.5px solid var(--color-gray-400);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  background: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.mentorCard:hover {
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-card);
+}
+
+.mentorTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 2px;
+}
+
+.mentorInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.mentorName {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.mentorRole {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-bottom: 8px;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.mentorMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-gray-700);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.match {
+  font-size: 13px;
+  color: var(--color-gray-700);
+}
+
+.mentorActions {
+  display: flex;
+  gap: 10px;
+}
+
+.mentorActions > * {
+  flex: 1;
+}
+
+/* Empty */
+.emptyState {
+  text-align: center;
+  color: var(--color-gray-500);
+  padding: 40px 0;
+  font-size: 14px;
+}

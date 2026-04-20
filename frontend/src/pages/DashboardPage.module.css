@@ -1,0 +1,199 @@
+/* src/pages/DashboardPage.module.css */
+.page {
+  min-height: 100vh;
+}
+
+/* Greeting */
+.greeting {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Mission */
+.missionCard {
+  margin-bottom: 14px;
+}
+
+.missionLabel {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+
+  span {
+    color: var(--color-nexar);
+  }
+}
+
+.missionSub {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-bottom: 12px;
+}
+
+.missionTitle {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+
+.missionDuration {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-bottom: 14px;
+}
+
+/* Wellness */
+.wellnessCard {
+  margin-bottom: 14px;
+}
+
+.wellnessHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.wellnessCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-black);
+  flex-shrink: 0;
+}
+
+.wellnessTitle {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.wellnessSub {
+  font-size: 13px;
+  color: var(--color-gray-600);
+  margin-bottom: 14px;
+}
+
+.energyRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.energyBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.energyCircle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gray-400);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.energyCircleActive {
+  background: var(--color-nexar-circle);
+  border-color: var(--color-black);
+}
+
+.energyLabel {
+  font-size: 12px;
+  font-family: var(--font-body);
+  color: var(--color-gray-600);
+  transition: color var(--transition-fast);
+}
+
+.energyBtn:has(.energyCircleActive) .energyLabel {
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+/* Radar */
+.radarCard {
+  margin-bottom: 14px;
+}
+
+.radarTitle {
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.radarBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.radarSkills {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.radarSkillItem {
+  font-size: 13px;
+  color: var(--color-gray-700);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.radarBullet {
+  font-size: 8px;
+  color: var(--color-black);
+}
+
+/* Connections */
+.connectionsCard {
+  margin-bottom: 14px;
+}
+
+.connectionsTitle {
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.connectionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: var(--color-white);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.connectionItem:hover {
+  border-color: var(--color-black);
+  transform: translateX(2px);
+}
+
+.connectionName {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.connectionRole {
+  font-size: 12px;
+  color: var(--color-gray-600);
+}

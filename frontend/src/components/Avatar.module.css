@@ -1,0 +1,14 @@
+/* src/components/Avatar.module.css */
+.avatar {
+  border-radius: 50%;
+  border: 2px solid var(--color-black);
+  background: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-black);
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  user-select: none;
+}
