@@ -46,3 +46,26 @@ jobs:
 
     - name: Docker Build
       run: docker build -t nexar-app .
+
+  # NOVO JOB: Deploy para Staging
+  deploy-staging:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Simulando Deploy em Staging
+        run: |
+          echo "Fazendo deploy no ambiente de STAGING..."
+          echo "Deploy de nexar-app concluído em staging.nexar.com"
+
+  # NOVO JOB: Deploy para Produção
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production
+    # opicional: exigir aprovação manual nas configurações do GitHub
+    steps:
+      - name: Simulando Deploy em Produção
+        run: |
+          echo "Fazendo deploy no ambiente de PRODUÇÃO..."
+          echo "Deploy de nexar-app concluído em app.nexar.com"
