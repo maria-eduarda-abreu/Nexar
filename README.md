@@ -1,4 +1,4 @@
-# 🚀 NEXAR: Cidades ESG Inteligentes
+### Documentação Técnica: NEXAR
 
 > Plataforma de empregabilidade sustentável com Inteligência Artificial
 
@@ -10,18 +10,18 @@ O **NEXAR** é uma plataforma de empregabilidade sustentável que utiliza Inteli
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Categoria | Tecnologias |
 |-----------|-------------|
-| **Backend** | Java 17 com Spring Boot (Spring Web, Data MongoDB) |
+| **Backend** | Java 21 com Spring Boot (Spring Web, Data MongoDB) |
 | **Frontend** | React.js com Vite e CSS Modules |
 | **Banco de Dados** | MongoDB (NoSQL) - coleções de usuários, carreiras e mentores |
 | **DevOps** | Docker, Docker Compose e GitHub Actions |
 
 ---
 
-## 📦 Como Executar Localmente com Docker
+## Como Executar Localmente com Docker
 
 Para subir o ambiente completo (Frontend, Backend e Banco de Dados), siga os passos abaixo:
 
@@ -35,7 +35,7 @@ docker-compose up --build
 
 ---
 
-## 🚀 Pipeline CI/CD
+## Pipeline CI/CD
 
 A automação do ciclo de vida da aplicação foi implementada utilizando o GitHub Actions.
 
@@ -63,7 +63,7 @@ O arquivo utiliza três estágios principais:
 
 ---
 
-## 📸 Prints do Funcionamento
+## Prints do Funcionamento
 
 (Aqui deves inserir as imagens reais do teu computador ou os links do GitHub)
 
@@ -73,7 +73,7 @@ O arquivo utiliza três estágios principais:
 
 ---
 
-## 📋 Checklist de Entrega (Obrigatório)
+## Checklist de Entrega (Obrigatório)
 
 Item | OK
 ---|---
