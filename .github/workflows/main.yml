@@ -27,12 +27,13 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-        cache: maven
+        cache: gradle
 
     - name: Build Backend and Run Tests
       run: |
         cd backend
-        mvn clean package
+        chmod +x gradlew
+        ./gradlew clean test build
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
