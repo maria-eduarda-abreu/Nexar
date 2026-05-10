@@ -51,6 +51,8 @@ jobs:
             echo "Tentativa $i/30 - aguardando 5 segundos..."
             sleep 5
           done
+          echo "=== LOG DO BACKEND ==="
+          cat /tmp/backend.log
           echo "Backend não ficou disponível após 150 segundos"
           exit 1
 
