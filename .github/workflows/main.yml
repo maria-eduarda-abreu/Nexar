@@ -38,11 +38,21 @@ jobs:
       - name: Start Backend
         run: |
           java -jar backend/build/libs/*.jar &
-          echo "Aguardando backend iniciar..."
-          sleep 15
+          echo "Backend iniciado em background, aguardando..."
 
-      - name: Verify Backend is UP
-        run: curl --fail --retry 5 --retry-delay 3 http://localhost:8080/api/health
+      - name: Wait for Backend to be ready
+        run: |
+          echo "Aguardando backend ficar disponível..."
+          for i in {1..30}; do
+            if curl -s http://localhost:8080/api/health > /dev/null 2>&1; then
+              echo "Backend está disponível após $i tentativas!"
+              exit 0
+            fi
+            echo "Tentativa $i/30 - aguardando 5 segundos..."
+            sleep 5
+          done
+          echo "Backend não ficou disponível após 150 segundos"
+          exit 1
 
       - name: Run Tests
         run: |
