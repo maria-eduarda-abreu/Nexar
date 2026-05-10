@@ -5,6 +5,7 @@ Feature: Login da aplicação
     When enviar uma requisição POST para login
     Then o sistema deve retornar status 200
     And deve retornar um token JWT
+    And o corpo da resposta deve estar de acordo com o schema de sucesso
 
   Scenario: Login com senha inválida
     Given que o usuário possui credenciais inválidas
