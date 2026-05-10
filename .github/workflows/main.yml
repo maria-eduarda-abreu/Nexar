@@ -37,19 +37,22 @@ jobs:
 
       - name: Start Backend
         run: |
-          java -jar backend/build/libs/*.jar &
-          echo "Backend iniciado em background, aguardando..."
+          JAR=$(ls backend/build/libs/*[^plain].jar | head -1)
+          echo "Iniciando JAR: $JAR"
+          nohup java -jar "$JAR" > /tmp/backend.log 2>&1 &
+          echo $! > /tmp/backend.pid
+          echo "PID do backend: $(cat /tmp/backend.pid)"
 
       - name: Wait for Backend to be ready
         run: |
           echo "Aguardando backend ficar disponível..."
           for i in {1..30}; do
-            if curl -s http://localhost:8080/api/health > /dev/null 2>&1; then
-              echo "Backend está disponível após $i tentativas!"
-              exit 0
-            fi
-            echo "Tentativa $i/30 - aguardando 5 segundos..."
-            sleep 5
+          if curl -s http://localhost:8080/api/health > /dev/null 2>&1; then
+           echo "Backend está disponível após $i tentativas!"
+           exit 0
+          fi
+          echo "Tentativa $i/30 - aguardando 5 segundos..."
+          sleep 5
           done
           echo "=== LOG DO BACKEND ==="
           cat /tmp/backend.log
