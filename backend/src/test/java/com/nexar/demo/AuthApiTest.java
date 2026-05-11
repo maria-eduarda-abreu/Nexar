@@ -1,7 +1,6 @@
 package com.nexar.demo;
 
 import org.junit.jupiter.api.Test;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -10,6 +9,8 @@ import java.net.URL;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AuthApiTest {
 
@@ -23,15 +24,14 @@ public class AuthApiTest {
         int status = conn.getResponseCode();
         String response = read(conn);
 
-        // Validação de status code
+        // 1. Validação de status code
         assertEquals(200, status);
 
-        // Validação do corpo JSON
+        // 2. Validação do corpo
         assertTrue(response.contains("\"token\""), "Resposta deve conter token");
-        assertTrue(response.contains("\"message\""), "Resposta deve conter message");
 
-        // Validação de contrato (campos obrigatórios do schema)
-        assertFalse(response.contains("\"token\":null"), "Token não deve ser nulo");
+        // 3. Validação de contrato utilizando JSON Schema (Exigência da atividade!)
+        assertThat(response, matchesJsonSchemaInClasspath("schema/login-success-schema.json"));
     }
 
     @Test
@@ -44,10 +44,7 @@ public class AuthApiTest {
         int status = conn.getResponseCode();
         String response = readError(conn);
 
-        // Validação de status code
         assertEquals(401, status);
-
-        // Validação do corpo JSON
         assertTrue(response.contains("Credenciais inválidas"), "Deve retornar mensagem de erro");
     }
 
@@ -58,10 +55,7 @@ public class AuthApiTest {
         int status = conn.getResponseCode();
         String response = read(conn);
 
-        // Validação de status code
         assertEquals(200, status);
-
-        // Validação do corpo
         assertTrue(response.contains("NEXAR API is running"), "API deve estar rodando");
     }
 
